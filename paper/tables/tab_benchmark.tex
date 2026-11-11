@@ -1,0 +1,30 @@
+\begin{table}[t]
+\centering
+\caption{Disturbance Characterization Benchmark on NASA VIIRS Detections ($N = \numDetections{}$, 5-Seed Mean $\pm$ SD).}
+\label{tab:satellite_benchmark}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model / Configuration} & \textbf{Accuracy (\%)} & \textbf{Macro-F1 (\%)} & \textbf{Weighted-F1 (\%)} & \textbf{Macro-Recall (\%)} \\
+\midrule
+\multicolumn{5}{l}{\textit{Reference and Control Baselines}} \\
+Majority Baseline & 34.8 $\pm$ 0.0 & 10.3 $\pm$ 0.0 & 18.0 $\pm$ 0.0 & 20.0 $\pm$ 0.0 \\
+Coordinates-Only (Lat/Lon) & 99.8 $\pm$ 0.1 & 99.8 $\pm$ 0.1 & 99.8 $\pm$ 0.1 & 99.8 $\pm$ 0.1 \\
+Geometry-Only (Scan/Track) & 53.0 $\pm$ 1.0 & 47.3 $\pm$ 1.9 & 51.8 $\pm$ 1.1 & 45.7 $\pm$ 1.5 \\
+$T_{I5}$-Only (Ambient Temp) & 52.3 $\pm$ 0.7 & 39.9 $\pm$ 2.7 & 47.3 $\pm$ 1.2 & 42.7 $\pm$ 1.4 \\
+\midrule
+\multicolumn{5}{l}{\textit{Pure Radiometric Classifiers}} \\
+Logistic Regression (Balanced) & 55.4 $\pm$ 0.7 & 54.4 $\pm$ 0.9 & 55.5 $\pm$ 0.5 & 59.7 $\pm$ 1.2 \\
+Decision Tree (Depth 6) & 61.6 $\pm$ 1.6 & 57.0 $\pm$ 1.0 & 58.7 $\pm$ 0.7 & 57.7 $\pm$ 1.5 \\
+Multi-Layer Perceptron (MLP) & 61.7 $\pm$ 0.5 & 57.8 $\pm$ 0.7 & 59.1 $\pm$ 0.3 & 59.4 $\pm$ 0.9 \\
+Random Forest (150 trees) & 63.1 $\pm$ 0.6 & 60.4 $\pm$ 1.4 & 61.6 $\pm$ 0.6 & 59.8 $\pm$ 1.8 \\
+HistGradientBoosting & 60.3 $\pm$ 1.5 & 58.5 $\pm$ 2.0 & 59.5 $\pm$ 1.5 & 58.2 $\pm$ 2.1 \\
+\midrule
+\multicolumn{5}{l}{\textit{Orbital Swath Geometry Shortcut Ablation}} \\
+HistGBM + Swath (Scan/Track) & \textbf{83.4 $\pm$ 0.6} & \textbf{81.3 $\pm$ 0.8} & \textbf{83.3 $\pm$ 0.6} & \textbf{80.8 $\pm$ 1.1} \\
+\midrule
+Spatial Block 5-Fold CV (HistGBM) & 55.5 $\pm$ 5.8 & 53.7 $\pm$ 5.2 & --- & --- \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

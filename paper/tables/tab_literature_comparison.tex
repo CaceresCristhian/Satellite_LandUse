@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\caption{Comparison of Satellite Disturbance Characterization and Active Fire Attribution Frameworks}
+\label{tab:literature_comparison}
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{3.5cm}p{2.8cm}p{2.8cm}p{2.8cm}p{4.2cm}}
+\toprule
+\textbf{Framework / Sensor Product} & \textbf{Spatial Resolution} & \textbf{Primary Input Modality} & \textbf{Target Disturbance Class} & \textbf{Primary Methodological Limitation} \\
+\midrule
+Optical Global Forest Loss~\cite{hansen2013,curtis2018} & $30\text{ m}$ Landsat & Annual multi-spectral surface reflectance & Stand-replacement disturbance & Annual latency; misses sub-canopy and rapid burning \\
+MODIS Active Fire (MOD14)~\cite{giglio2016} & $1\text{ km}$ nominal & Mid-infrared 4\,$\mu$m and 11\,$\mu$m channels & Coarse active fire detection & Pixel blurring ($1\text{ km}$); misses small clearings \\
+VIIRS Nightfire Gas Flaring~\cite{elvidg2016} & $750\text{ m}$ M-band & Nighttime shortwave infrared (SWIR) & Industrial petrochemical flaring & Restricted to nighttime; vegetation fires excluded \\
+Geometry-Conditioned Ablation & $375\text{ m}$ VIIRS & Swath footprints (\texttt{scan}, \texttt{track}) + radiances & Multi-class disturbance & Inflates accuracy by \shortcutBoost{} percentage points via orbital scan-angle shortcuts \\
+\midrule
+\textbf{Pure Radiometric Benchmark (This Work)} & \textbf{$375\text{ m}$ VIIRS I-Band} & \textbf{Thermal contrast ($\Delta T, T_{I4}, T_{I5}, \text{FRP}$)} & \textbf{5 Global Disturbance Biomes} & \textbf{Random pixel split (optimistic); single region per class; background $T_{I5}$ climate confounding} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
